@@ -74,6 +74,21 @@ namespace Forum.Repository.DataLayer
 
             return record;
         }
+
+        protected void ExecuteNonQuery(SqlCommand command)
+        {
+            command.Connection = _connection;
+            _connection.Open();
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
         protected IEnumerable<T> ExecuteStoredProc(SqlCommand command)
         {
             var list = new List<T>();

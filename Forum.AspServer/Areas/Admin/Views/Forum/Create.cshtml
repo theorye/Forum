@@ -1,0 +1,60 @@
+﻿@model AdminForumViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h2 class="text-info">Create Forum</h2>
+<br />
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+    <div class="border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Forum.ForumName" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="Forum.ForumName" class="form-control" />
+            </div>
+            <span asp-validation-for="Forum.ForumName" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Forum.Description" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <textarea asp-for="Forum.Description" class="form-control"></textarea>
+            </div>
+            <span asp-validation-for="Forum.Description" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Forum.ForumImageURL" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input type="file" name="files" multiple class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Forum.CategoryName" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <select asp-for="@Model.Forum.CategoryID" asp-items="@(new SelectList(Model.Categories, "CategoryID", "CategoryName"))" class="form-control"></select>
+            </div>
+            <span asp-validation-for="Forum.CategoryID" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-5 offset-2">
+                <partial name="_CreateAndBackToListButton" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

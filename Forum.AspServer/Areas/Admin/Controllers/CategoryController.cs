@@ -34,7 +34,7 @@ namespace SimpleForum.AspServer.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Details(string id)
+        public IActionResult Details(int id)
         {
             Category model = _service.GetById(id);
 
@@ -46,7 +46,7 @@ namespace SimpleForum.AspServer.Areas.Admin.Controllers
             return View(model);
         }
 
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {
             Category model = _service.GetById(id);
 
@@ -58,7 +58,7 @@ namespace SimpleForum.AspServer.Areas.Admin.Controllers
             return View(model);
         }
 
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             Category model = _service.GetById(id);
 
@@ -72,44 +72,43 @@ namespace SimpleForum.AspServer.Areas.Admin.Controllers
 
         // Actions
 
-        // POST - CREATE
-    //    [HttpPost]
-    //    [ValidateAntiForgeryToken]
-    //    public IActionResult Create(Category category)
-    //    {
-    //        if (ModelState.IsValid)
-    //        {
-    //            new CategoryDataContext(dbAccess).Create(category.Title);
+        //POST - CREATE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.Create(category);
 
-    //            return RedirectToAction(nameof(Index));
-    //        }
-    //        return View(category);
-    //    }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(category);
+        }
 
-    //    [HttpPost]
-    //    [ValidateAntiForgeryToken]
-    //    public IActionResult Edit(Category category)
-    //    {
-    //        if (ModelState.IsValid)
-    //        {
-    //            new CategoryDataContext(dbAccess).Update(category);
-
-
-    //            return RedirectToAction(nameof(Index));
-    //        }
-
-    //        return View(category);
-    //    }
-
-    //    [HttpPost, ActionName("Delete")]
-    //    [ValidateAntiForgeryToken]
-    //    public IActionResult DeleteConfirmed(int id)
-    //    {
-    //        new CategoryDataContext(dbAccess).Delete(id);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                _service.Update(category);
 
 
-    //        return RedirectToAction(nameof(Index));
-    //    }
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(category);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(Category category)
+        {
+            _service.Delete(category.CategoryID);
+
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }

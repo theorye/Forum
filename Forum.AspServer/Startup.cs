@@ -41,6 +41,8 @@ namespace Forum.AspServer
 
 
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IForumService, ForumService>();
+            services.AddTransient<IUserService, UserService>();
 
         }
 

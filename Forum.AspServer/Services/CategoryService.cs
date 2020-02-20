@@ -24,9 +24,24 @@ namespace Forum.AspServer.Services
             return _repository.GetAll();
         }
 
-        public Category GetById(string id)
+        public Category GetById(int id)
         {
             return _repository.GetById(id);
+        }
+
+        public void Create(Category category)
+        {
+            _repository.Create(category);
+        }
+
+        public void Update(Category category)
+        {
+            _repository.Update(category);
+        }
+
+        public void Delete(int id)
+        {
+            _repository.Delete(id);
         }
     }
 }

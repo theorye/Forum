@@ -3,17 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.AspServer", "Forum.AspServer\Forum.AspServer.csproj", "{149E91E0-50FF-4D71-88C4-69F9C33FA5AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forum.AspServer", "Forum.AspServer\Forum.AspServer.csproj", "{149E91E0-50FF-4D71-88C4-69F9C33FA5AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.DataLayer", "Forum.DataLayer\Forum.DataLayer.csproj", "{13B5E4CE-0F7C-4B53-AD6F-60A01D35DA2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forum.DataLayer", "Forum.DataLayer\Forum.DataLayer.csproj", "{13B5E4CE-0F7C-4B53-AD6F-60A01D35DA2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.Domain", "Forum.Domain\Forum.Domain.csproj", "{A1AB8136-A4D4-417D-B396-2FF79B89E8B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forum.Domain", "Forum.Domain\Forum.Domain.csproj", "{A1AB8136-A4D4-417D-B396-2FF79B89E8B2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MSSQL", "MSSQL", "{FD2D2634-C102-470A-B9CD-60F307367451}"
 	ProjectSection(SolutionItems) = preProject
 		Common.sql = Common.sql
 		GetAllEmployeesProc.sql = GetAllEmployeesProc.sql
 		Tables.sql = Tables.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22443F06-F977-4E57-83BD-A0C7D157CACD}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
 	EndProjectSection
 EndProject
 Global
